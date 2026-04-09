@@ -82,12 +82,13 @@ section{padding:96px 32px}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:64px}
 .about-text p{font-size:16px;color:var(--text2);line-height:1.8;margin-bottom:16px}
 .about-img-wrap{position:relative}
-.about-img-box{background:linear-gradient(135deg,#f5e6b8,#e8c97e);border-radius:var(--radius-xl);height:400px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.about-img-deco{position:absolute;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-.about-icon-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:32px}
-.about-icon-item{background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);border-radius:var(--radius);padding:20px;text-align:center;box-shadow:var(--shadow-card)}
-.about-icon-item .icon{font-size:28px;margin-bottom:8px}
-.about-icon-item p{font-size:13px;font-weight:600;color:var(--dark)}
+.about-img-box{border-radius:var(--radius-xl);height:420px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.about-img-box img{width:100%;height:100%;object-fit:cover;display:block}
+.about-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,0.55) 0%,transparent 60%)}
+.about-img-badges{position:absolute;bottom:20px;left:20px;right:20px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.about-badge-pill{background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px rgba(0,0,0,0.12)}
+.about-badge-pill .icon{font-size:22px;line-height:1}
+.about-badge-pill p{font-size:12px;font-weight:600;color:var(--dark);line-height:1.3}
 .vmv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
 .vmv-card{background:rgba(255,255,255,0.8);backdrop-filter:blur(16px);border:1px solid rgba(201,168,76,0.15);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-card);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
 .vmv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,var(--gold),var(--gold2))}
@@ -131,17 +132,16 @@ section{padding:96px 32px}
 .filter-btn{padding:10px 24px;border-radius:50px;border:1.5px solid rgba(201,168,76,0.25);background:transparent;font-size:13px;font-weight:500;color:var(--text2);cursor:pointer;transition:all .25s}
 .filter-btn.active,.filter-btn:hover{background:linear-gradient(135deg,#c9a84c,#e8c97e);color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(201,168,76,0.35)}
 .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.portfolio-item{border-radius:var(--radius-lg);overflow:hidden;position:relative;aspect-ratio:4/3;cursor:pointer;background:linear-gradient(135deg,#f5e6b8,#e8c97e)}
-.portfolio-item-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:transform .4s cubic-bezier(.22,.68,0,1.2)}
-.portfolio-item:hover .portfolio-item-inner{transform:scale(1.05)}
-.portfolio-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,0.85) 0%,rgba(26,18,8,0.2) 50%,transparent 100%);opacity:0;transition:opacity .35s}
+.portfolio-item{border-radius:var(--radius-lg);overflow:hidden;position:relative;aspect-ratio:4/3;cursor:pointer;background:#1a1208}
+.portfolio-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.22,.68,0,1.2)}
+.portfolio-item:hover img{transform:scale(1.08)}
+.portfolio-item-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,0.88) 0%,rgba(26,18,8,0.25) 55%,transparent 100%);opacity:.55;transition:opacity .35s}
 .portfolio-item:hover .portfolio-item-overlay{opacity:1}
-.portfolio-item-label{position:absolute;bottom:0;left:0;right:0;padding:24px;transform:translateY(10px);opacity:0;transition:all .35s;color:#fff}
+.portfolio-item-label{position:absolute;bottom:0;left:0;right:0;padding:24px;transform:translateY(6px);opacity:0;transition:all .35s;color:#fff}
 .portfolio-item:hover .portfolio-item-label{transform:translateY(0);opacity:1}
 .portfolio-item-label h4{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:4px}
-.portfolio-item-label span{font-size:12px;opacity:.7;text-transform:uppercase;letter-spacing:1px}
-.portfolio-emoji{font-size:52px;line-height:1}
-.portfolio-tag{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.15);padding:4px 12px;border-radius:50px;border:1px solid rgba(201,168,76,0.25)}
+.portfolio-item-label span{font-size:12px;opacity:.75;text-transform:uppercase;letter-spacing:1px}
+.portfolio-tag-badge{position:absolute;top:16px;left:16px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;background:rgba(201,168,76,0.85);padding:5px 14px;border-radius:50px;backdrop-filter:blur(8px)}
 
 /* ── PROCESS ── */
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;position:relative}
@@ -175,10 +175,13 @@ section{padding:96px 32px}
 .team-card p{font-size:13px;color:var(--text2);line-height:1.6}
 
 /* ── CTA ── */
-.cta-section{background:linear-gradient(135deg,#c9a84c 0%,#e8c97e 50%,#c9a84c 100%);text-align:center;padding:80px 32px;position:relative;overflow:hidden}
-.cta-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.cta-section{position:relative;text-align:center;padding:80px 32px;overflow:hidden}
+.cta-bg{position:absolute;inset:0;z-index:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover;display:block}
+.cta-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.88) 0%,rgba(232,201,126,0.82) 50%,rgba(201,168,76,0.90) 100%)}
+.cta-section .container{position:relative;z-index:1}
 .cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:#fff;margin-bottom:14px}
-.cta-section p{font-size:18px;color:rgba(255,255,255,0.85);margin-bottom:36px}
+.cta-section p{font-size:18px;color:rgba(255,255,255,0.9);margin-bottom:36px}
 .btn-white{background:#fff;color:var(--gold);padding:16px 40px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 8px 28px rgba(0,0,0,0.15);transition:all .25s;display:inline-block}
 .btn-white:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,0.2)}
 
@@ -197,7 +200,6 @@ section{padding:96px 32px}
 .form-group input,.form-group select,.form-group textarea{border:1.5px solid rgba(201,168,76,0.2);border-radius:10px;padding:12px 16px;font-size:14px;font-family:'Poppins',sans-serif;color:var(--text);background:#fff;outline:none;transition:border-color .2s;resize:none}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.1)}
 .form-group textarea{height:110px}
-.map-placeholder{background:linear-gradient(135deg,#f5e6b8,#e8c97e80);border-radius:var(--radius);height:200px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text2);margin-top:20px;border:1.5px dashed rgba(201,168,76,0.3);flex-direction:column;gap:8px}
 
 /* ── FOOTER ── */
 footer{background:var(--dark);color:rgba(255,255,255,0.8);padding:64px 32px 28px}
@@ -245,6 +247,31 @@ footer ul li a:hover{color:var(--gold)}
   .hero-stats{gap:24px}
   .footer-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;text-align:center}
+  .contact-form{padding:24px 16px}
+  .hero{padding:100px 20px 80px}
+  .hero-scroll{display:none}
+  .about-img-box{height:320px}
+  .img-strip-grid{grid-template-columns:repeat(2,1fr)!important;height:300px!important}
+}
+@media(max-width:480px){
+  section{padding:48px 16px}
+  .hero{padding:90px 16px 60px}
+  .hero-stats{flex-direction:column;gap:16px;margin-top:40px}
+  .hero-stat{display:flex;align-items:center;gap:12px;justify-content:center}
+  .hero-stat-num{font-size:28px}
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-primary,.btn-outline{width:100%;justify-content:center;text-align:center}
+  .process-steps{grid-template-columns:1fr}
+  .counters{grid-template-columns:1fr 1fr}
+  .counter-num{font-size:36px}
+  .nav-inner{padding:0 16px}
+  .contact-form{padding:20px 12px}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{gap:28px}
+  .cta-section{padding:56px 16px}
+  .filter-btns{gap:8px}
+  .filter-btn{padding:8px 16px;font-size:12px}
+  .about-icon-grid{grid-template-columns:1fr 1fr;gap:12px;padding:16px}
 }
 </style>
 </head>
@@ -321,11 +348,13 @@ footer ul li a:hover{color:var(--gold)}
       </div>
       <div style="flex:1;min-width:260px" class="reveal">
         <div class="about-img-box">
-          <div class="about-icon-grid">
-            <div class="about-icon-item"><div class="icon">🎭</div><p>Event Design</p></div>
-            <div class="about-icon-item"><div class="icon">🏛️</div><p>Facility Mgmt</p></div>
-            <div class="about-icon-item"><div class="icon">🍽️</div><p>Catering</p></div>
-            <div class="about-icon-item"><div class="icon">🎯</div><p>Precision</p></div>
+          <img src="lawn.jpeg" alt="Eventforever event setup">
+          <div class="about-img-overlay"></div>
+          <div class="about-img-badges">
+            <div class="about-badge-pill"><div class="icon">🎭</div><p>Event Design</p></div>
+            <div class="about-badge-pill"><div class="icon">🏛️</div><p>Facility Mgmt</p></div>
+            <div class="about-badge-pill"><div class="icon">🍽️</div><p>Catering</p></div>
+            <div class="about-badge-pill"><div class="icon">🎯</div><p>Precision</p></div>
           </div>
         </div>
       </div>
@@ -401,6 +430,14 @@ footer ul li a:hover{color:var(--gold)}
   </div>
 </section>
 
+<!-- IMAGE STRIP -->
+<div class="img-strip-grid" style="display:grid;grid-template-columns:repeat(4,1fr);height:220px;overflow:hidden">
+  <div style="overflow:hidden"><img src="gettogether.webp" alt="Get together event" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s" onmouseover="this.style.transform='scale(1.07)'" onmouseout="this.style.transform='scale(1)'"></div>
+  <div style="overflow:hidden"><img src="openparty.png" alt="Open party event" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s" onmouseover="this.style.transform='scale(1.07)'" onmouseout="this.style.transform='scale(1)'"></div>
+  <div style="overflow:hidden"><img src="stage.png" alt="Stage event" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s" onmouseover="this.style.transform='scale(1.07)'" onmouseout="this.style.transform='scale(1)'"></div>
+  <div style="overflow:hidden"><img src="party.png" alt="Party event" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s" onmouseover="this.style.transform='scale(1.07)'" onmouseout="this.style.transform='scale(1)'"></div>
+</div>
+
 <!-- WHY CHOOSE US -->
 <section class="why" id="why">
   <div class="container">
@@ -467,33 +504,40 @@ footer ul li a:hover{color:var(--gold)}
       <button class="filter-btn" onclick="filterPortfolio('wedding',this)">Weddings</button>
       <button class="filter-btn" onclick="filterPortfolio('government',this)">Government</button>
     </div>
-    <div class="portfolio-grid reveal" id="portfolioGrid"> <div class="portfolio-item" data-cat="corporate" style="background:linear-gradient(135deg,#fdf1d8,#e8c97e)"> 
-      <div class="portfolio-item-inner"><div class="portfolio-emoji">🎤</div><div class="portfolio-tag">Corporate</div></div> 
-      <div class="portfolio-item-overlay"></div> <div class="portfolio-item-label"><h4>Annual Leadership Summit</h4><span>Corporate · 2024</span></div>
-    </div>
-    </div>
-     <div class="portfolio-item" data-cat="wedding" style="background:linear-gradient(135deg,#fce4e4,#f5c6c6)"> 
-       <div class="portfolio-item-inner"><div class="portfolio-emoji">💍</div><div class="portfolio-tag">Wedding</div></div> 
-       <div class="portfolio-item-overlay"></div> 
-       <div class="portfolio-item-label"><h4>Royal Garden Wedding</h4><span>Social · 2024</span></div>
+    <div class="portfolio-grid reveal" id="portfolioGrid">
+      <div class="portfolio-item" data-cat="corporate">
+        <img src="corporate.png" alt="Annual Leadership Summit">
+        <div class="portfolio-tag-badge">Corporate</div>
+        <div class="portfolio-item-overlay"></div>
+        <div class="portfolio-item-label"><h4>Annual Leadership Summit</h4><span>Corporate · 2024</span></div>
       </div>
-      <div class="portfolio-item" data-cat="government" style="background:linear-gradient(135deg,#e4ece4,#c6dfc6)">
-        <div class="portfolio-item-inner"><div class="portfolio-emoji">🏛️</div><div class="portfolio-tag">Government</div></div>
+      <div class="portfolio-item" data-cat="wedding">
+        <img src="marriage.jpeg" alt="Royal Garden Wedding">
+        <div class="portfolio-tag-badge">Wedding</div>
+        <div class="portfolio-item-overlay"></div>
+        <div class="portfolio-item-label"><h4>Royal Garden Wedding</h4><span>Social · 2024</span></div>
+      </div>
+      <div class="portfolio-item" data-cat="government">
+        <img src="bigstage.png" alt="National Day Celebration">
+        <div class="portfolio-tag-badge">Government</div>
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-label"><h4>National Day Celebration</h4><span>Government · 2024</span></div>
       </div>
-      <div class="portfolio-item" data-cat="corporate" style="background:linear-gradient(135deg,#e4eef9,#c6d9f5)">
-        <div class="portfolio-item-inner"><div class="portfolio-emoji">🚀</div><div class="portfolio-tag">Corporate</div></div>
+      <div class="portfolio-item" data-cat="corporate">
+        <img src="stage.png" alt="Tech Product Launch">
+        <div class="portfolio-tag-badge">Corporate</div>
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-label"><h4>Tech Product Launch</h4><span>Corporate · 2023</span></div>
       </div>
-      <div class="portfolio-item" data-cat="wedding" style="background:linear-gradient(135deg,#f9e4f0,#f5c6e6)">
-        <div class="portfolio-item-inner"><div class="portfolio-emoji">🌸</div><div class="portfolio-tag">Wedding</div></div>
+      <div class="portfolio-item" data-cat="wedding">
+        <img src="gettogether.webp" alt="Floral Themed Sangeet">
+        <div class="portfolio-tag-badge">Wedding</div>
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-label"><h4>Floral Themed Sangeet</h4><span>Social · 2023</span></div>
       </div>
-      <div class="portfolio-item" data-cat="government" style="background:linear-gradient(135deg,#f9f4e4,#f5e6b8)">
-        <div class="portfolio-item-inner"><div class="portfolio-emoji">🎪</div><div class="portfolio-tag">Government</div></div>
+      <div class="portfolio-item" data-cat="government">
+        <img src="openparty.png" alt="Cultural Festival 2023">
+        <div class="portfolio-tag-badge">Government</div>
         <div class="portfolio-item-overlay"></div>
         <div class="portfolio-item-label"><h4>Cultural Festival 2023</h4><span>Government · 2023</span></div>
       </div>
@@ -611,6 +655,7 @@ footer ul li a:hover{color:var(--gold)}
 
 <!-- CTA -->
 <section class="cta-section">
+  <div class="cta-bg"><img src="party.png" alt="Event celebration"></div>
   <div class="container">
     <h2 class="reveal">Let's Plan Your Next Event</h2>
     <p class="reveal">From concept to celebration — we're ready when you are.</p>
@@ -649,10 +694,11 @@ footer ul li a:hover{color:var(--gold)}
             <div class="contact-item-text"><strong>Business Hours</strong><span>Mon – Sat: 9:00 AM – 7:00 PM</span></div>
           </div>
         </div>
-        <div class="map-placeholder">
-          <span style="font-size:32px">🗺️</span>
-          <span style="font-weight:600;color:var(--text)">MUMBAI-400056 </span>
-          <span style="font-size:12px">Mumbai, India</span>
+        <div style="margin-top:20px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-card);border:1.5px solid rgba(201,168,76,0.2)">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.885!2d72.83656!3d19.10744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c9b8b0000001%3A0x1!2sIrla+Lane%2C+Vile+Parle+West%2C+Mumbai%2C+Maharashtra+400056%2C+India!5e0!3m2!1sen!2sin!4v1"
+            width="100%" height="240" style="border:0;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Eventforever Office Location"></iframe>
         </div>
       </div>
       <div class="contact-form">
