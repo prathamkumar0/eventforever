@@ -22,7 +22,7 @@ body{font-family:'Poppins',sans-serif;color:#2d2d2d;background:#fffdf9;overflow-
 }
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:all .4s ease;padding:18px 0}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:all .4s ease;padding:8px 0;overflow:visible}
 nav.scrolled{background:rgba(255,253,249,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(180,130,50,0.12);padding:12px 0}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
@@ -282,8 +282,7 @@ footer ul li a:hover{color:var(--gold)}
 <nav id="navbar">
   <div class="nav-inner">
     <a class="nav-logo" href="#">
-      <img src="logo.png" alt="Events Forever Logo" style="width:40px;height:40px;object-fit:contain;border-radius:10px;">
-      <span class="nav-logo-text">Events <span>Forever</span></span>
+      <img src="logo.png" alt="Events Forever Logo" style="width:90px;height:90px;object-fit:contain;border-radius:10px;position:relative;z-index:2;">
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
