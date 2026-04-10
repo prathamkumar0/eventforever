@@ -22,10 +22,13 @@ body{font-family:'Poppins',sans-serif;color:#2d2d2d;background:#fffdf9;overflow-
 }
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:all .4s ease;padding:8px 0;overflow:visible}
-nav.scrolled{background:rgba(255,253,249,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(180,130,50,0.12);padding:12px 0}
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:all .4s ease;padding:10px 0;overflow:visible}
+nav.scrolled{background:rgba(255,253,249,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 2px 24px rgba(180,130,50,0.12);padding:10px 0}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{width:160px;height:60px;object-fit:contain;padding:4px 8px;filter:drop-shadow(0 2px 8px rgba(201,168,76,0.3));transition:transform .3s,filter .3s}
+.nav-logo img:hover{transform:scale(1.04);filter:drop-shadow(0 4px 14px rgba(201,168,76,0.5))}
+nav.scrolled .nav-logo img{width:160px;height:60px}
 .nav-logo-mark{width:36px;height:36px;background:linear-gradient(135deg,#c9a84c,#e8c97e);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:16px;letter-spacing:1px}
 .nav-logo-text{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark);letter-spacing:.5px}
 .nav-logo-text span{color:var(--gold)}
@@ -282,7 +285,7 @@ footer ul li a:hover{color:var(--gold)}
 <nav id="navbar">
   <div class="nav-inner">
     <a class="nav-logo" href="#">
-      <img src="logo.png" alt="Events Forever Logo" style="width:90px;height:90px;object-fit:contain;border-radius:10px;position:relative;z-index:2;">
+      <img src="logo.png" alt="Events Forever Logo">
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
